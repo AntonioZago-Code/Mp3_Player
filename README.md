@@ -49,8 +49,12 @@ python Version_1.0/main.py
 4. Use the following commands during playback:
    - **P**: Pause the current song
    - **R**: Resume the paused song
+   - **B**: Begin/Replay the current song from the start
    - **S**: Stop the current song
-   - **Q**: Quit the application
+
+5. Additional features:
+   - Press **R** from the menu to play a random song
+   - Press **Q** from the menu to quit the application
 
 ## Project Structure
 
@@ -59,7 +63,10 @@ Mp3_Player/
 ├── README.md
 ├── LICENSE
 ├── Version_1.0/
-│   ├── main.py              # Main application file
+│   ├── main.py              # Version 1.0 application file
+│   └── songs/               # Folder for MP3 files
+├── Version_1.1/
+│   ├── main.py              # Version 1.1 application file (Latest)
 │   └── songs/               # Folder for MP3 files
 └── .venv/                   # Virtual environment (optional)
 ```
@@ -75,6 +82,12 @@ The application uses the pygame library to handle audio playback:
 5. **Error Handling**: Validates file existence and directory integrity
 
 ## Version History
+
+### Version 1.1 (Current)
+- Added replay/begin command to restart current song
+- Random song selection feature
+- Improved user menu interface
+- Enhanced event handling for song completion
 
 ### Version 1.0
 - Initial release
