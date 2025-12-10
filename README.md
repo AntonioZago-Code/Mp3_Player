@@ -37,11 +37,11 @@ pip install pygame
 
 ## Usage
 
-1. Add your MP3 files to the `Version_1.0/songs/` folder
+1. Add your MP3 files to the `Version_1.2/songs/` folder
 
 2. Run the application:
 ```bash
-python Version_1.0/main.py
+python Version_1.2/mp3Player.py
 ```
 
 3. Select a song by entering its number from the displayed list
@@ -66,24 +66,54 @@ Mp3_Player/
 │   ├── main.py              # Version 1.0 application file
 │   └── songs/               # Folder for MP3 files
 ├── Version_1.1/
-│   ├── main.py              # Version 1.1 application file (Latest)
+│   ├── main.py              # Version 1.1 application file
+│   └── songs/               # Folder for MP3 files
+├── Version_1.2/
+│   ├── mp3Player.py         # Main application file (Latest)
+│   ├── fileControler.py     # File management module
+│   ├── songControler.py     # Song playback module
 │   └── songs/               # Folder for MP3 files
 └── .venv/                   # Virtual environment (optional)
 ```
 
 ## How It Works
 
-The application uses the pygame library to handle audio playback:
+Version 1.2 uses a modular architecture with three main components:
 
-1. **Initialization**: Initializes the pygame mixer for audio support
-2. **File Discovery**: Scans the `songs/` folder for MP3 files
-3. **Song Selection**: Displays available songs and waits for user input
-4. **Playback Control**: Allows users to pause, resume, or stop playback
-5. **Error Handling**: Validates file existence and directory integrity
+1. **mp3Player.py** - Main application controller
+   - Handles user interface and menu system
+   - Manages song selection and playback flow
+   - Uses Files and Song classes for operations
+
+2. **fileControler.py** - File management module
+   - Scans and lists MP3 files from directory
+   - Validates file existence and paths
+   - Returns file paths for playback
+
+3. **songControler.py** - Song playback module
+   - Manages pygame mixer initialization
+   - Handles play, pause, resume, replay, and stop operations
+   - Processes user commands during playback
+
+**Workflow**:
+1. **Initialization**: Mp3Player initializes with Files class pointing to songs folder
+2. **File Discovery**: Files class scans directory and returns list of MP3 files
+3. **Song Selection**: User selects song by number or requests random selection
+4. **Playback Control**: Song class handles all playback operations and user commands
+5. **Error Handling**: Each module validates data and handles errors gracefully
 
 ## Version History
 
-### Version 1.1 (Current)
+### Version 1.2 (Current)
+- Complete code refactor with modular architecture
+- **mp3Player.py**: Main application controller
+- **songControler.py**: Handles song playback operations
+- **fileControler.py**: Manages file and directory operations
+- Improved separation of concerns and code maintainability
+- Enhanced error handling and user interface
+- Object-oriented design for better scalability
+
+### Version 1.1
 - Added replay/begin command to restart current song
 - Random song selection feature
 - Improved user menu interface

@@ -29,10 +29,6 @@ def play_music(folder, song_name):
 
     """)
 
-    # Define um evento personalizado para quando a música acabar
-    FIM_DA_MUSICA = pygame.USEREVENT + 1
-    pygame.mixer.music.set_endevent(FIM_DA_MUSICA)
-
     # RUNS A LOOP WAITING FOR THE USER TO CHOOSE BETWEEN THE PREVIOUS OPTIONS.
     # THE LOOP WILL STOP WHEN THE USER TYPES "S" TO STOP.
     while True:
@@ -72,7 +68,7 @@ def main():
     
 
     # FOLDER WITH .mp3 FILES
-    folder = "Version_1.1/songs"
+    folder = "Version_1.1/songs/"
 
     # CHECKS IF THE 'folder' IS A VALID DIRECTORY
     if not os.path.isdir(folder):
